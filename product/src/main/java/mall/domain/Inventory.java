@@ -42,13 +42,13 @@ public class Inventory  {
     public void onPostUpdate(){
 
 
-        StockDecreased stockDecreased = new StockDecreased(this);
-        stockDecreased.publishAfterCommit();
+        // StockDecreased stockDecreased = new StockDecreased(this);
+        // stockDecreased.publishAfterCommit();
 
 
 
-        StockIncreased stockIncreased = new StockIncreased(this);
-        stockIncreased.publishAfterCommit();
+        // StockIncreased stockIncreased = new StockIncreased(this);
+        // stockIncreased.publishAfterCommit();
 
     }
 
@@ -60,53 +60,29 @@ public class Inventory  {
 
 
 
-    public static void stockDecrease(DeliveryCompleted deliveryCompleted){
-
-        /** Example 1:  new item 
-        Inventory inventory = new Inventory();
-        repository().save(inventory);
-
-        StockDecreased stockDecreased = new StockDecreased(inventory);
-        stockDecreased.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(deliveryCompleted.get???()).ifPresent(inventory->{
+    public static void stockDecrease(DeliveryStarted deliveryStarted){        
+        repository().findById(deliveryStarted.getProductId()).ifPresent(inventory->{
             
-            inventory // do something
+            inventory.setStock(inventory.getStock() - deliveryStarted.getQty());
             repository().save(inventory);
 
             StockDecreased stockDecreased = new StockDecreased(inventory);
             stockDecreased.publishAfterCommit();
 
-         });
-        */
-
-        
+         });        
     }
-    public static void stockIncrease(DeliveryReturned deliveryReturned){
 
-        /** Example 1:  new item 
-        Inventory inventory = new Inventory();
-        repository().save(inventory);
+    public static void stockIncrease(DeliveryCanceled deliveryCanceled){
 
-        StockIncreased stockIncreased = new StockIncreased(inventory);
-        stockIncreased.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(deliveryReturned.get???()).ifPresent(inventory->{
+        repository().findById(deliveryCanceled.getProductId()).ifPresent(inventory->{
             
-            inventory // do something
+            inventory.setStock(inventory.getStock() + deliveryCanceled.getQty()); 
             repository().save(inventory);
 
             StockIncreased stockIncreased = new StockIncreased(inventory);
             stockIncreased.publishAfterCommit();
 
          });
-        */
 
         
     }

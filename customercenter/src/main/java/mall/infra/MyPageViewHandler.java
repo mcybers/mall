@@ -30,13 +30,10 @@ public class MyPageViewHandler {
             myPage.setProductName(orderPlaced.getProductName());
             myPage.setProductId(orderPlaced.getProductId());
             myPage.setQty(orderPlaced.getQty());
-            myPage.setProductName(orderPlaced.getProductName());
-            myPage.setProductId(orderPlaced.getProductId());
-            myPage.setQty(orderPlaced.getQty());
             // view 레파지 토리에 save
             myPageRepository.save(myPage);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -52,12 +49,11 @@ public class MyPageViewHandler {
                 for(MyPage myPage : myPageList){
                     // view 객체에 이벤트의 eventDirectValue 를 set 함
                     myPage.setStatus(deliveryStarted.getStatus());
-                    myPage.set();
-                // view 레파지 토리에 save
-                myPageRepository.save(myPage);
+                    // view 레파지 토리에 save
+                    myPageRepository.save(myPage);
                 }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -71,11 +67,11 @@ public class MyPageViewHandler {
                 for(MyPage myPage : myPageList){
                     // view 객체에 이벤트의 eventDirectValue 를 set 함
                     myPage.setStatus(deliveryCompleted.getStatus());
-                // view 레파지 토리에 save
-                myPageRepository.save(myPage);
+                    // view 레파지 토리에 save
+                    myPageRepository.save(myPage);
                 }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -89,11 +85,11 @@ public class MyPageViewHandler {
                 for(MyPage myPage : myPageList){
                     // view 객체에 이벤트의 eventDirectValue 를 set 함
                     myPage.setStatus(deliveryReturned.getStatus());
-                // view 레파지 토리에 save
-                myPageRepository.save(myPage);
+                    // view 레파지 토리에 save
+                    myPageRepository.save(myPage);
                 }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -107,11 +103,11 @@ public class MyPageViewHandler {
                 for(MyPage myPage : myPageList){
                     // view 객체에 이벤트의 eventDirectValue 를 set 함
                     myPage.setStatus(deliveryCompleted.getStatus());
-                // view 레파지 토리에 save
-                myPageRepository.save(myPage);
+                    // view 레파지 토리에 save
+                    myPageRepository.save(myPage);
                 }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -125,11 +121,11 @@ public class MyPageViewHandler {
                 for(MyPage myPage : myPageList){
                     // view 객체에 이벤트의 eventDirectValue 를 set 함
                     myPage.setStatus(deliveryReturned.getStatus());
-                // view 레파지 토리에 save
-                myPageRepository.save(myPage);
+                    // view 레파지 토리에 save
+                    myPageRepository.save(myPage);
                 }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

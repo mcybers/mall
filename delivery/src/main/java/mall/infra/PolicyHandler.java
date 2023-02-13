@@ -28,15 +28,9 @@ public class PolicyHandler{
         OrderPlaced event = orderPlaced;
         System.out.println("\n\n##### listener StartDelivery : " + orderPlaced + "\n\n");
 
-
-        
-
         // Sample Logic //
         Delivery.startDelivery(event);
         
-
-        
-
     }
 
     @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='OrderCanceled'")
